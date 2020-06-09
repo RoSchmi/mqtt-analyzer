@@ -13,7 +13,7 @@ import SwiftUI
 
 struct PublishFixedMessageCellView: View {
 	
-	var function_on_PublishFixedMessagesView: (String, String) -> Void
+	var function_on_PublishFixedMessagesView: (String, String, Int, Bool) -> Void
 	
 	@ObservedObject var fixedMessage: FixedMessage
 	
@@ -21,12 +21,8 @@ struct PublishFixedMessageCellView: View {
 	@ObservedObject var fixedMessagesModel: FixedMessagesModel
 	
     var body: some View {
-		/*
-		NavigationLink(destination: PublishFixedMessageDetailView( fixedMessage: fixedMessage, message: message, fixedMessagesModel: fixedMessagesModel)) {
-			*/
-		NavigationLink(destination: PublishFixedMessageDetailView(function_on_PublishFixedMessageCellView:
-			
-			{self.handOverToParent(titleParameter: $0, topic: $1)}, fixedMessage: fixedMessage, message: message)) {
+		NavigationLink(destination: PublishFixedMessageDetailView(function_on_PublishFixedMessageCellView: {
+				self.handOverToParent(pMessage: $0, pTopic: $1, pQos: $2, pRetain: $3)}, fixedMessage: fixedMessage, message: message)) {
 				
 				VStack(alignment: .leading) {
 				HStack {
@@ -36,13 +32,9 @@ struct PublishFixedMessageCellView: View {
 					
 				}
 			}
-			
 		}
-		
-		
 	}
-	func handOverToParent(titleParameter: String, topic: String)
+	func handOverToParent(pMessage: String, pTopic: String, pQos: Int, pRetain: Bool)
 		//{print(titleParameter)}
-	{self.function_on_PublishFixedMessagesView(titleParameter, topic)}
+	{self.function_on_PublishFixedMessagesView(pMessage, pTopic, pQos, pRetain)}
 }
-

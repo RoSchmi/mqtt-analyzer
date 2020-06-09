@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PublishFixedMessagesView: View {
 	
-	var function_on_PublishMessageFormView: (String, String) -> Void
+	var function_on_PublishMessageFormView: (String, String, Int, Bool) -> Void
 	
 	@ObservedObject var message: PublishMessageFormModel
 	@ObservedObject var fixedMessagesModel: FixedMessagesModel
@@ -22,8 +22,9 @@ struct PublishFixedMessagesView: View {
 				List {
 					ForEach(fixedMessagesModel.fixedMessages, id: \.self) { MySelectedMessage in
 						PublishFixedMessageCellView(
-							function_on_PublishFixedMessagesView:
-							{self.handOverToParent(titleParameter: $0, topic: $1)}, fixedMessage: MySelectedMessage, message: self.message, fixedMessagesModel: self.fixedMessagesModel)}
+							function_on_PublishFixedMessagesView: {
+								self.handOverToParent(pMessage: $0,
+							pTopic: $1, pQos: $2, pRetain: $3)}, fixedMessage: MySelectedMessage, message: self.message, fixedMessagesModel: self.fixedMessagesModel)}
 						.onDelete(perform: delete)
 				}
 			}
@@ -40,15 +41,13 @@ struct PublishFixedMessagesView: View {
 		fixedMessagesModel.fixedMessages.remove(atOffsets: offsets)
     }
 	
-	func handOverToParent(titleParameter: String, topic: String) {self.function_on_PublishMessageFormView(titleParameter, topic)}
+	func handOverToParent(pMessage: String, pTopic: String, pQos: Int, pRetain: Bool) {self.function_on_PublishMessageFormView(pMessage, pTopic, pQos, pRetain)}
 	
 	func addRow() {
-		let newMessage: FixedMessage = FixedMessage(id: NSUUID().uuidString, title: "DummyAdded",
+		let newMessage: FixedMessage = FixedMessage(id: NSUUID().uuidString, title: "Placeholder",
 			explanation: "None", topic: "", message: "", qos: 0, retain: false,
 									messageType: MessageType.on_off)
 		
 		self.fixedMessagesModel.fixedMessages.append(newMessage)
-		
 	}
 }
-

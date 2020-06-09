@@ -56,8 +56,6 @@ class FixedMessage: ObservableObject, Hashable, Identifiable {
 		self.message = message
 		self.qos = qos
 		self.retain = retain
-		//self.jsonData = jsonData
-		//self.properties = properties
 		self.messageType = messageType
 	}
 }
@@ -65,17 +63,22 @@ class FixedMessage: ObservableObject, Hashable, Identifiable {
 final class FixedMessagesModel: ObservableObject {
 	@Published var fixedMessages: [FixedMessage]
 	= [
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Light On", explanation: "None", topic: "#", message: "", qos: 0, retain: false, messageType: MessageType.on_off),
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Light Off", explanation: "None", topic: "#", message: "", qos: 0, retain: false, messageType: MessageType.on_off),
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Heating On", explanation: "None", topic: "#", message: "", qos: 0, retain: false, messageType: MessageType.on_off)	]
+		FixedMessage(id: NSUUID().uuidString, title: "Switch Light On",
+			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
+			messageType: MessageType.on_off),
+		FixedMessage(id: NSUUID().uuidString, title: "Switch Light Off",
+			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
+			messageType: MessageType.on_off),
+		FixedMessage(id: NSUUID().uuidString, title: "Switch Heating On",
+			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
+			messageType: MessageType.on_off)]
 }
 
 struct HostCellView: View {
 	@EnvironmentObject var model: RootModel
 	@ObservedObject var host: Host
 	@ObservedObject var messageModel: MessageModel
-	
-	//RoSchmi
+		
 	@ObservedObject var fixedMessagesModel = FixedMessagesModel()
 	
 	@State var sheetPresented = false

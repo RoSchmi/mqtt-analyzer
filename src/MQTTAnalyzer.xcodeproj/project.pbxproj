@@ -667,9 +667,9 @@
 			isa = PBXGroup;
 			children = (
 				22C9F73023B78F9700892C4B /* PublishMessageFormView.swift */,
+				CEA45550248FF28900CC561C /* PublishFixedMessagesView.swift */,
 				CEA4554C248FF21700CC561C /* PublishFixedMessageCellView.swift */,
 				CEA4554E248FF25200CC561C /* PublishFixedMessageDetailView.swift */,
-				CEA45550248FF28900CC561C /* PublishFixedMessagesView.swift */,
 			);
 			path = "message-publish";
 			sourceTree = "<group>";

@@ -12,26 +12,17 @@ import Foundation
 import SwiftyJSON
 import swift_petitparser
 
-
 struct PublishFixedMessageDetailView: View {
 	
-	var function_on_PublishFixedMessageCellView: (String, String) -> Void
+	var function_on_PublishFixedMessageCellView: (String, String, Int, Bool) -> Void
 	
+	// RoSchmi Not sure, what to use
 	//@State var fixedMessage: FixedMessage
 	@ObservedObject var fixedMessage: FixedMessage
 	
 	@ObservedObject var message: PublishMessageFormModel
 	
-	//@ObservedObject var fixedMessagesModel: FixedMessagesModel
-	
-	//let closeFixedMessagesCallback: () -> Void
-	//let root: RootModel
-	//let host: Host
-	
-	//@Binding var type: PublishFixedMessageType
-	
 	var body: some View {
-			//NavigationView {
 			Form {
 				VStack(alignment: HorizontalAlignment.leading) {
 				
@@ -98,43 +89,10 @@ struct PublishFixedMessageDetailView: View {
 		.navigationBarItems(leading: Button("", action: {}), trailing: Button(action: self.send) {Text("Publish").font(.headline)})
 		}
 	}
-	//func send() {}
-	
-	func send() { self.function_on_PublishFixedMessageCellView(fixedMessage.title, fixedMessage.topic)}
 		
-		
-		
-		/*
-		if model.messageType == .json {
-			model.updateMessageFromJsonData()
-		}
-		*/
-		/*
-		let msg = Message(data: model.message,
-						  date: Date.init(),
-						  qos: Int32(model.qos),
-						  retain: model.retain,
-						  topic: model.topic)
-		*/
-		/*
-		let msg = Message(data: fixedMessage.message,
-		date: Date.init(),
-		qos: Int32(fixedMessage.qos),
-		retain: fixedMessage.retain,
-		topic: fixedMessage.topic)
-		*/
-		//root.publish(message: msg, on: self.host)
-
-	    
-		
-		//closeFixedMessagesCallback()
+	func send() { self.function_on_PublishFixedMessageCellView(fixedMessage.message, fixedMessage.topic, fixedMessage.qos, fixedMessage.retain)}
 	}
 	
-
-//	func cancel() {
-		//closeFixedMessagesCallback()
-//	}
-
 struct PublishFixedMessageFormPlainTextView: View {
 	@Binding var fMessage: String
 	
@@ -144,7 +102,7 @@ struct PublishFixedMessageFormPlainTextView: View {
 			.disableAutocorrection(true)
 			.autocapitalization(.none)
 			.font(.system(.body, design: .monospaced))
-			.frame(height: 50)
+			.frame(height: 250)
 			.background(Color.secondary)
 		}
 	}

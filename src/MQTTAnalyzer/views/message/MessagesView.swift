@@ -14,8 +14,6 @@ import SwiftUI
 struct MessagesView: View {
 	@ObservedObject var messagesByTopic: MessagesByTopic
 	
-	//@State var fixedMessages: [FixedMessage]
-	
 	@ObservedObject var fixedMessagesModel: FixedMessagesModel
 	
 	
@@ -43,35 +41,3 @@ struct MessagesView: View {
 	}
 }
 
-
-
-/*
-
-import SwiftUI
-
-struct MessagesView: View {
-	@ObservedObject var messagesByTopic: MessagesByTopic
-	let host: Host
-	
-	var body: some View {
-		VStack(alignment: .leading) {
-			List {
-				MessageTopicView(messagesByTopic: messagesByTopic)
-
-				DataSeriesView(messagesByTopic: messagesByTopic)
-				
-				MessageView(messagesByTopic: messagesByTopic, host: host)
-			}
-		}
-		.navigationBarTitle(Text(messagesByTopic.topic.lastSegment))
-		.listStyle(GroupedListStyle())
-		.onAppear {
-			self.messagesByTopic.read.markRead()
-		}
-	}
-	
-	func copyTopic() {
-		UIPasteboard.general.string = messagesByTopic.topic.name
-	}
-}
-*/

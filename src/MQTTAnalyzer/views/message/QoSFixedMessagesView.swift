@@ -19,4 +19,3 @@ struct QOSFixedMessagesPicker: View {
 		}.pickerStyle(SegmentedPickerStyle())
 	}
 }
-

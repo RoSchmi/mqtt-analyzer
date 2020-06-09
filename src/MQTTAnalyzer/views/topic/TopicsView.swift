@@ -12,7 +12,7 @@ struct TopicsListView: View {
 	@ObservedObject var host: Host
 	@ObservedObject var model: MessageModel
 	
-	//RoSchmi
+	// RoSchmi
 	@ObservedObject var fixedMessagesModel: FixedMessagesModel
 	
 	@Binding var dialogPresented: Bool
@@ -35,7 +35,8 @@ struct TopicsListView: View {
 							TopicCellView(
 								messages: messages,
 								model: self.model,
-								fixedMessagesModel: self.fixedMessagesModel,								publishMessagePresented: self.$dialogPresented,
+								fixedMessagesModel: self.fixedMessagesModel,
+								publishMessagePresented: self.$dialogPresented,
 								host: self.host,
 								selectMessage: self.selectMessage)
 						}
