@@ -12,13 +12,18 @@ struct TopicCellView: View {
 	@EnvironmentObject var root: RootModel
 	var messages: MessagesByTopic
 	var model: MessageModel
+	
+	// RoSchmi
+	@ObservedObject var fixedMessagesModel: FixedMessagesModel
+	
+	
 	@Binding var publishMessagePresented: Bool
 	
 	let host: Host
 	let selectMessage: (Message) -> Void
 	
 	var body: some View {
-		NavigationLink(destination: MessagesView(messagesByTopic: messages, host: host)) {
+		NavigationLink(destination: MessagesView(messagesByTopic: messages, fixedMessagesModel: fixedMessagesModel, host: host)) {
 			HStack {
 				ReadMarkerView(read: messages.read)
 				

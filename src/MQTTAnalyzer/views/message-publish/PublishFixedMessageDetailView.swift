@@ -135,5 +135,17 @@ struct PublishFixedMessageDetailView: View {
 		//closeFixedMessagesCallback()
 //	}
 
-
-
+struct PublishFixedMessageFormPlainTextView: View {
+	@Binding var fMessage: String
+	
+	var body: some View {
+		Group {
+			MessageFixedTextView(text: $fMessage)
+			.disableAutocorrection(true)
+			.autocapitalization(.none)
+			.font(.system(.body, design: .monospaced))
+			.frame(height: 50)
+			.background(Color.secondary)
+		}
+	}
+}

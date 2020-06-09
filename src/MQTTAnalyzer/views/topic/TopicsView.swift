@@ -11,6 +11,10 @@ import SwiftUI
 struct TopicsListView: View {
 	@ObservedObject var host: Host
 	@ObservedObject var model: MessageModel
+	
+	//RoSchmi
+	@ObservedObject var fixedMessagesModel: FixedMessagesModel
+	
 	@Binding var dialogPresented: Bool
 	@Binding var publishMessageModel: PublishMessageFormModel?
 	
@@ -31,7 +35,7 @@ struct TopicsListView: View {
 							TopicCellView(
 								messages: messages,
 								model: self.model,
-								publishMessagePresented: self.$dialogPresented,
+								fixedMessagesModel: self.fixedMessagesModel,								publishMessagePresented: self.$dialogPresented,
 								host: self.host,
 								selectMessage: self.selectMessage)
 						}
@@ -50,6 +54,10 @@ struct TopicsView: View {
 	@EnvironmentObject var rootModel: RootModel
 	var model: MessageModel
 	@ObservedObject var host: Host
+	
+	// RoSchmi
+	@ObservedObject var fixedMessagesModel: FixedMessagesModel
+	
 	@State private var actionSheetPresented = false
 	@State var dialogPresented: Bool
 	@State private var publishMessageModel: PublishMessageFormModel?
@@ -58,6 +66,7 @@ struct TopicsView: View {
 		TopicsListView(
 			host: host,
 			model: model,
+			fixedMessagesModel: fixedMessagesModel,
 			dialogPresented: $dialogPresented,
 			publishMessageModel: $publishMessageModel)
 			.navigationBarTitle(Text(host.aliasOrHost), displayMode: .inline)
@@ -97,7 +106,8 @@ struct TopicsView: View {
 				PublishMessageFormModalView(closeCallback: self.cancelPublishMessageCreation,
 										 root: self.rootModel,
 										 host: self.host,
-										 model: self.publishMessageModel!)
+										 model: self.publishMessageModel!,
+										 fixedMessagesModel: self.fixedMessagesModel)
 			}
 		})
 	}

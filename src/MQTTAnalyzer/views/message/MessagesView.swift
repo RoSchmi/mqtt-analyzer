@@ -6,6 +6,47 @@
 //  Copyright © 2019 Philipp Arndt. All rights reserved.
 //
 
+
+
+
+import SwiftUI
+
+struct MessagesView: View {
+	@ObservedObject var messagesByTopic: MessagesByTopic
+	
+	//@State var fixedMessages: [FixedMessage]
+	
+	@ObservedObject var fixedMessagesModel: FixedMessagesModel
+	
+	
+	let host: Host
+	
+	var body: some View {
+		VStack(alignment: .leading) {
+			List {
+				MessageTopicView(messagesByTopic: messagesByTopic)
+
+				DataSeriesView(messagesByTopic: messagesByTopic)
+				
+				MessageView( messagesByTopic: messagesByTopic, fixedMessagesModel: fixedMessagesModel, host: host)
+			}
+		}
+		.navigationBarTitle(Text(messagesByTopic.topic.lastSegment))
+		.listStyle(GroupedListStyle())
+		.onAppear {
+			self.messagesByTopic.read.markRead()
+		}
+	}
+	
+	func copyTopic() {
+		UIPasteboard.general.string = messagesByTopic.topic.name
+	}
+}
+
+
+
+/*
+
 import SwiftUI
 
 struct MessagesView: View {
@@ -33,3 +74,4 @@ struct MessagesView: View {
 		UIPasteboard.general.string = messagesByTopic.topic.name
 	}
 }
+*/
