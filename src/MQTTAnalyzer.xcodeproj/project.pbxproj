@@ -131,6 +131,8 @@
 		CEA4554D248FF21700CC561C /* PublishFixedMessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4554C248FF21700CC561C /* PublishFixedMessageCellView.swift */; };
 		CEA4554F248FF25200CC561C /* PublishFixedMessageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4554E248FF25200CC561C /* PublishFixedMessageDetailView.swift */; };
 		CEA45551248FF28900CC561C /* PublishFixedMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA45550248FF28900CC561C /* PublishFixedMessagesView.swift */; };
+		CEA45553248FF9F500CC561C /* QoSFixedMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA45552248FF9F500CC561C /* QoSFixedMessagesView.swift */; };
+		CEA45555248FFB3B00CC561C /* MessageFixedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA45554248FFB3B00CC561C /* MessageFixedTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +290,8 @@
 		CEA4554C248FF21700CC561C /* PublishFixedMessageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishFixedMessageCellView.swift; sourceTree = "<group>"; };
 		CEA4554E248FF25200CC561C /* PublishFixedMessageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishFixedMessageDetailView.swift; sourceTree = "<group>"; };
 		CEA45550248FF28900CC561C /* PublishFixedMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishFixedMessagesView.swift; sourceTree = "<group>"; };
+		CEA45552248FF9F500CC561C /* QoSFixedMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QoSFixedMessagesView.swift; sourceTree = "<group>"; };
+		CEA45554248FFB3B00CC561C /* MessageFixedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFixedTextView.swift; sourceTree = "<group>"; };
 		E01573E4AFB043C24894F363 /* Pods-MQTTAnalyzerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTAnalyzerTests.release.xcconfig"; path = "Target Support Files/Pods-MQTTAnalyzerTests/Pods-MQTTAnalyzerTests.release.xcconfig"; sourceTree = "<group>"; };
 		E24A1B1B076FFC9BCADD4C40 /* Pods-MQTTAnalyzerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTAnalyzerUITests.release.xcconfig"; path = "Target Support Files/Pods-MQTTAnalyzerUITests/Pods-MQTTAnalyzerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F916BCD72867FFAA5DFDDE16 /* Pods-MQTTAnalyzerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTAnalyzerTests.debug.xcconfig"; path = "Target Support Files/Pods-MQTTAnalyzerTests/Pods-MQTTAnalyzerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -553,6 +557,7 @@
 				228104892381740000112F24 /* MessageView.swift */,
 				2281048B2381744300112F24 /* TopicView.swift */,
 				22C9F73923B8CCCC00892C4B /* QOSView.swift */,
+				CEA45552248FF9F500CC561C /* QoSFixedMessagesView.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				22C9F73623B79A1300892C4B /* MessageTextView.swift */,
+				CEA45554248FFB3B00CC561C /* MessageFixedTextView.swift */,
 			);
 			path = "multiline-text";
 			sourceTree = "<group>";
@@ -997,7 +1003,9 @@
 				22C9F74023BB5EA700892C4B /* MessageModel.swift in Sources */,
 				2256BDAA246FBE5100F92EFE /* DataMigrationEmptyTopic.swift in Sources */,
 				22E469D5237FBEC500D72BD6 /* ReadMarkerView.swift in Sources */,
+				CEA45553248FF9F500CC561C /* QoSFixedMessagesView.swift in Sources */,
 				2291283C24681CAD006F8256 /* SubscriptionDetailsView.swift in Sources */,
+				CEA45555248FFB3B00CC561C /* MessageFixedTextView.swift in Sources */,
 				22FD7CFF22C8D2660078795F /* MQTTSessionController.swift in Sources */,
 				2291424F23C0C0370086C251 /* MenuButton.swift in Sources */,
 				22C9F73E23BB5E5C00892C4B /* HostModel.swift in Sources */,
