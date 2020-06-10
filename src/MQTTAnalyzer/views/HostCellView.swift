@@ -63,13 +63,17 @@ class FixedMessage: ObservableObject, Hashable, Identifiable {
 final class FixedMessagesModel: ObservableObject {
 	@Published var fixedMessages: [FixedMessage]
 	= [
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Light On",
-			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
+		FixedMessage(id: NSUUID().uuidString, title: "Turn Left",
+			explanation: "Example: See HostCellView.swift", topic: "$aws/things/Board_01/shadow/update",
+			message: "{\"state\":{\"desired\":{\"Leftcolor\":\"blue\",\"Rightcolor\":\"red\"}}}",
+			qos: 0, retain: false,
 			messageType: MessageType.on_off),
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Light Off",
-			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
+		FixedMessage(id: NSUUID().uuidString, title: "Turn Right",
+			explanation: "Example: See HostCellView.swift",
+			topic: "$aws/things/Board_01/shadow/update",
+			message: "{\"state\":{\"desired\":{\"Leftcolor\":\"red\",\"Rightcolor\":\"blue\"}}}", qos: 0, retain: false,
 			messageType: MessageType.on_off),
-		FixedMessage(id: NSUUID().uuidString, title: "Switch Heating On",
+		FixedMessage(id: NSUUID().uuidString, title: "Placeholder",
 			explanation: "None", topic: "#", message: "", qos: 0, retain: false,
 			messageType: MessageType.on_off)]
 }

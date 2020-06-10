@@ -178,7 +178,7 @@ struct PublishMessageFormModalView: View {
 		
 	var body: some View {
 		NavigationView {
-			PublishMessageFormView(function_on_PublishMessageFormModalView: {self.doSomething(pMessage: $0, pTopic: $1, pQos: $2,
+			PublishMessageFormView(function_on_PublishMessageFormModalView: {self.startPublish(pMessage: $0, pTopic: $1, pQos: $2,
 				pRetain: $3)}, message: self.model, fixedMessagesModel: fixedMessagesModel,
 				type: self.$model.messageType)
 				.font(.caption)
@@ -197,7 +197,7 @@ struct PublishMessageFormModalView: View {
 		.navigationViewStyle(StackNavigationViewStyle())
 	}
 	
-	func doSomething(pMessage: String, pTopic: String, pQos: Int, pRetain: Bool) {print(pMessage); print(pTopic) }
+	func startPublish(pMessage: String, pTopic: String, pQos: Int, pRetain: Bool) {print(pTopic); print(pMessage); publish() }
 		
 	func publish() {
 		if model.messageType == .json {

@@ -33,7 +33,7 @@ struct PublishFixedMessagesView: View {
 		.navigationBarTitle(Text("Commands"))
 		.navigationBarItems(trailing: Button(action: {self.addRow()})
 		{
-			Image(systemName: "plus").font(Font.subheadline.weight(.bold))
+			Image(systemName: "plus").font(Font.title.weight(.bold))
 			
 		})
 	}
