@@ -16,7 +16,7 @@ struct PublishFixedMessageDetailView: View {
 	
 	var function_on_PublishFixedMessageCellView: (String, String, Int, Bool) -> Void
 	
-	// RoSchmi Not sure, what to use
+	// RoSchmi Not sure, what to use here
 	//@State var fixedMessage: FixedMessage
 	@ObservedObject var fixedMessage: FixedMessage
 	
