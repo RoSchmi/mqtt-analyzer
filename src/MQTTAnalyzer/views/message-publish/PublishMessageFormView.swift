@@ -3,7 +3,7 @@
 //  MQTTAnalyzer
 //
 //  Created by Philipp Arndt on 2019-12-28.
-//  Copyright © 2019 Philipp Arndt. All rights reserved.
+//  Copyright © 2019 Philipp Arndt. All rights re served.
 //
 
 import Foundation
